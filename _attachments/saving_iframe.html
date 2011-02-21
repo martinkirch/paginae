@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<style type="text/css" media="screen">
+			body {
+				background:white;
+				text-align:center;
+				padding-top:0.5em;
+				letter-spacing:3px;
+				font-family:sans-serif;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	
+	<body>
+		Saving...
+	</body>
+	
+	<script language="javascript">			
+		function ajaxRequest(){
+			var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
+			if (window.ActiveXObject){
+				for (var i=0; i<activexmodes.length; i++){
+					try{
+						return new ActiveXObject(activexmodes[i]);
+					}
+					catch(e){}
+				}
+			} else if (window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			} else {
+				alert("Cant's save : it looks like your browser can't create XMLHttpRequest objects.");
+				throw("Can't instanciate an XMLHTTP or XMLHttpRequest.");
+			}
+		}
+	
+		function getUrlParameters(){
+			var found = {};
+		
+			var href = document.location.href;
+			var interrogation = href.indexOf('?');
+			if (interrogation >= 0) {
+				href.substring(interrogation + 1).split('&').forEach( function(element) {
+					var splitted = element.split('=');
+					found[splitted[0]] = window.atob(splitted[1]);
+				});
+			}
+		
+			return found;
+		}
+	
+		var dbUrl = document.location.href.match(/https?:\/\/[^\/]+\/[^\/]+\//)[0];
+	
+		var params = getUrlParameters();
+		var doc = {
+			type : 'link',
+			created_at : new Date().toJSON(),
+			title : params.title,
+			url : params.url
+		}
+	
+		var req = new ajaxRequest();
+
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				if (req.status == 201) {
+					document.body.innerHTML = "Saved !"
+				} else if (req.status >= 400){
+					var message = "An error occured : " + req.status + " - " + req.statusText;
+					if (req.responseText && req.responseText.length > 0) {
+						try {
+							var error = JSON.parse(req.responseText);
+							if (error.reason) {
+								message += "\n" + error.reason;
+							}
+						} catch (e) {}
+					}
+					alert(message);
+				} else {
+					alert("The request did not end normally, received " + req.status + " - " + req.statusText);
+				}
+			}
+		}
+	
+		req.open("POST", dbUrl);
+		req.setRequestHeader("Content-type", "application/json");
+		req.send(JSON.stringify(doc));
+	</script>
+</html>
