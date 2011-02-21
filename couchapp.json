@@ -1,0 +1,5 @@
+{
+    "name": "paginae",
+    "description": "A CouchDB-based bookmarking app, allowing you to synchronize easily your bookmarks between multiple computers.",
+		"version": "0"
+}
