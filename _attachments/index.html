@@ -18,6 +18,8 @@
 		
 		<div id="main">
 			<h1>Paginae</h1>
+			
+			<div id="linksList"></div>
 		</div>
 		
 	</body>
@@ -29,6 +31,7 @@
       //$.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
 
 			$("#bookmarklet").evently("bookmarklet", app);
+			$("#linksList").evently("linksList", app);
     });
   </script>
 

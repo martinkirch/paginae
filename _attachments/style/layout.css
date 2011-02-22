@@ -19,7 +19,7 @@ div {
 }
 
 #main {
-	margin : 2em auto;
+	margin : 0 auto;
 	text-align : justify;
 	width : 30em;
 }
@@ -28,4 +28,20 @@ div {
 	float:right;
 	width : 15em;
 	margin: 1em;
+}
+
+h1 {
+	margin : 1em 0;
+}
+
+#main h2 {
+	margin-bottom : 1em;
+}
+
+.link {
+	margin-bottom : 1em;
+}
+
+.link .created_at, .link a {
+	display: block;
 }

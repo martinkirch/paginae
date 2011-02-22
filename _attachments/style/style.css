@@ -29,3 +29,8 @@ h1 {
 	padding : 0.5em;
 	background : white;
 }
+
+.link .created_at {
+	color : #999;
+	font-style : italic;
+}
