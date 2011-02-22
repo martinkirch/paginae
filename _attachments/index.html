@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Paginae</title>
+		<link rel="stylesheet" href="style/layout.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="style/style.css" type="text/css" charset="utf-8" />
 		<!--
 			Copyright Martin Kirchgessner 2011.
 			Licensed under the OSI MIT License.
@@ -9,8 +11,15 @@
 		-->
 	</head>
 	<body>
-		<h1>Paginae</h1>
-
+		
+		<div id="sidebar">
+			<div id="bookmarklet"></div>
+		</div>
+		
+		<div id="main">
+			<h1>Paginae</h1>
+		</div>
+		
 	</body>
 	<script src="vendor/couchapp/loader.js"></script>
 	
@@ -18,6 +27,8 @@
     $.couch.app(function(app) {
       //$("#account").evently("account", app);
       //$.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
+
+			$("#bookmarklet").evently("bookmarklet", app);
     });
   </script>
 

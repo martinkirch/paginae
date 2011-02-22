@@ -1,0 +1,31 @@
+/*
+	Copyright Martin Kirchgessner 2011.
+	Licensed under the OSI MIT License.
+	http://www.opensource.org/licenses/mit-license.php
+*/
+
+* {
+	margin : 0;
+	padding : 0;
+}
+
+body {
+	text-align : center;
+	font : 1em Helvetica, sans-serif;
+}
+
+div {
+	text-align : left;
+}
+
+#main {
+	margin : 2em auto;
+	text-align : justify;
+	width : 30em;
+}
+
+#sidebar {
+	float:right;
+	width : 15em;
+	margin: 1em;
+}

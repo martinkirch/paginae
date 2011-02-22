@@ -1,0 +1,31 @@
+/*
+	Copyright Martin Kirchgessner 2011.
+	Licensed under the OSI MIT License.
+	http://www.opensource.org/licenses/mit-license.php
+*/
+body {
+ 	background : white;
+ 	font-family : Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+}
+
+h1 {
+	font-weight : lighter;
+	letter-spacing : 1em;
+	color : #999;
+}
+
+#sidebar {
+	border : 1px solid #ccc;
+}
+
+#sidebar h2 {
+	text-transform : uppercase;
+	color : white;
+	background : #ccc;
+	padding : 0.2em;
+}
+
+#sidebar p {
+	padding : 0.5em;
+	background : white;
+}
