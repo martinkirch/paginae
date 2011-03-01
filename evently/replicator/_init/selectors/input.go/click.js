@@ -1,0 +1,3 @@
+function () {
+	$("#replicator").trigger('replicate');
+}

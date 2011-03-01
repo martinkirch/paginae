@@ -25,12 +25,12 @@ h1 {
 	padding : 0.2em;
 }
 
-#sidebar p {
-	padding : 0.5em;
-	background : white;
-}
-
 .link .created_at {
 	color : #999;
 	font-style : italic;
+}
+
+#replicator input {
+	border : 1px solid #ccc;
+	font-size : 1em;
 }

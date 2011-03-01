@@ -28,6 +28,11 @@ div {
 	float:right;
 	width : 15em;
 	margin: 1em;
+	background: white;
+}
+
+#bookmarklet p, #replicator form {
+	padding : 0.5em;
 }
 
 h1 {
@@ -44,4 +49,16 @@ h1 {
 
 .link .created_at, .link a {
 	display: block;
+}
+
+#replicator div {
+	margin : 0.5em;
+}
+
+#replicator input {
+	float: right;
+}
+
+#replicator input[type=text] {
+	width:80%;
 }
