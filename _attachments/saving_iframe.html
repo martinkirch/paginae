@@ -42,7 +42,7 @@
 			if (interrogation >= 0) {
 				href.substring(interrogation + 1).split('&').forEach( function(element) {
 					var splitted = element.split('=');
-					found[splitted[0]] = window.atob(splitted[1]);
+					found[splitted[0]] = decodeURIComponent(splitted[1]);
 				});
 			}
 		

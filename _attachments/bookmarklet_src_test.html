@@ -10,30 +10,26 @@
 		// the uncompressed bookmarklet code
 		function bookmark(){
 			var d=document,
-				z=d.createElement('ifr'+'ame'),
-				b=d.body;
-		
-			try{
-				if(!b)
-					throw(0);
-				z.setAttribute('src',getCurrentHostURL() + '/paginae/_design/paginae/saving_iframe.html?url='+window.btoa(window.location.href)+'&title='+window.btoa(document.title));
-				b.appendChild(z);
-				s=z.style;
-				s.position='fixed';
-				s.top=s.left=25;
-				s.width='7em';
-				s.height='3em';
-				setTimeout(function(){b.removeChild(z)},3000);
-			}catch(e){
-				alert('Please%20wait%20until%20the%20page%20has%20loaded.');
-			}
+			z=d.createElement('ifr'+'ame'),
+			b=d.body;
+	
+			if(!b)
+				throw(0);
+			z.setAttribute('src', getCurrentHostURL() + '/paginae/_design/paginae/saving_iframe.html?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title));
+			b.appendChild(z);
+			s=z.style;
+			s.position='fixed';
+			s.top=s.left=25;
+			s.width='7em';
+			s.height='3em';
+			setTimeout(function(){b.removeChild(z)},3000);
 		}
 	
 		/**
 		 * @return the compressed bookmarklet code, based on the current host
 		 */
 		function generateBookmarklet() {
-			return "javascript:(function(){var d=document,z=d.createElement('ifr'+'ame'),b=d.body;try{if(!b)throw(0);z.setAttribute('src','" + getCurrentHostURL() + "/paginae/_design/paginae/saving_iframe.html?url='+window.btoa(window.location.href)+'&title='+window.btoa(document.title));b.appendChild(z);s=z.style;s.position='fixed';s.top=s.left=25;s.width='7em';s.height='3em';setTimeout(function(){b.removeChild(z)},3000);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}})();void(0);";
+			return "javascript:(function(){var d=document,z=d.createElement('ifr'+'ame'),b=d.body;if(!b)throw(0);z.setAttribute('src','" + getCurrentHostURL() + "/paginae/_design/paginae/saving_iframe.html?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title));b.appendChild(z);s=z.style;s.position='fixed';s.top=s.left=25;s.width='7em';s.height='3em';setTimeout(function(){b.removeChild(z)},3000);})();void(0);";
 		}
 		</script>
 		<title>Paginae bookmarklet tester</title>
